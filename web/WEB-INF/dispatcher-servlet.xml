@@ -20,8 +20,11 @@
         <property name="mappings">
             <props>
                 <prop key="hello.do">helloController</prop>
+                <prop key="index.do">indexController</prop>
                 <prop key="welcome.do">helloController</prop>
-                <prop key="listitems.do">itemController</prop>
+                <prop key="items.do">indexController</prop>
+                <prop key="itemAdd.do">itemAddController</prop>
+                <prop key="itemCreate.do">itemCreateController</prop>
             </props>
         </property>
     </bean>
@@ -39,5 +42,11 @@
     
     <bean name="itemController"
           class="org.centrale.prweb.controller.ItemController"/>
+    <bean name="indexController"
+          class="org.centrale.prweb.controller.IndexController"/>
+    <bean name="itemAddController"
+          class="org.centrale.prweb.controller.ItemAddController"/>
+    <bean name="itemCreateController"
+          class="org.centrale.prweb.controller.ItemCreateController"/>
     
 </beans>

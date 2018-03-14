@@ -6,6 +6,7 @@
 package org.centrale.prweb.manager;
 
 import java.util.Collection;
+import org.centrale.prweb.items.Category;
 import org.centrale.prweb.items.Item;
 
 /**
@@ -15,4 +16,7 @@ import org.centrale.prweb.items.Item;
 
 public interface ItemManager {
     public Collection<Item> page();
+    public void save(Item anItem);
+
+    public Collection<Category> listCategories();
 }

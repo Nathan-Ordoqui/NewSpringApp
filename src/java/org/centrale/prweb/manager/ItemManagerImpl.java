@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import org.centrale.prweb.items.Category;
 import org.centrale.prweb.items.Item;
 
 /**
@@ -38,12 +39,27 @@ public class ItemManagerImpl implements ItemManager{
     }
     
     @Override
+    public void save(Item anItem){
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(anItem);
+        em.getTransaction().commit();
+    }
+    
+    @Override
     public Collection<Item> page(){
         EntityManager em = emf.createEntityManager();
         Query queryProductsByName = em.createNamedQuery("Item.findAll", Item.class);
         Collection theList = queryProductsByName.getResultList();
         return theList;
     }
-            
+         
+    @Override
+    public Collection<Category> listCategories(){
+        EntityManager em = emf.createEntityManager();
+        Query queryProductsByName = em.createNamedQuery("Category.findAll", Category.class);
+        Collection theList = queryProductsByName.getResultList();
+        return theList;
+    }
     
 }
